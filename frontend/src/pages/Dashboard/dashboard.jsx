@@ -8,7 +8,7 @@ const sampleTasks = [
     {id: 4, title: 'Sample Task 4', completed: false}
 ];
 
-export default function Dashboard() {
+export default function Dashboard({ onNavigate }) {
     const currentDate = new Date();
 
     const formattedDate = currentDate.toLocaleDateString('en-US', {
@@ -20,7 +20,7 @@ export default function Dashboard() {
 
     return (
         <div className="dashboard-layout">
-            <Sidebar activePage="Dashboard" />
+            <Sidebar activePage="Dashboard" onNavigate={onNavigate} /> 
 
             <main className="dashboard-main">
                 <header className="dashboard-header">
