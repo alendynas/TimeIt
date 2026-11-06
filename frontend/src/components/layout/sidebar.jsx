@@ -1,10 +1,11 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const navigationItems = [
-  { label: 'Dashboard', icon: '▦', active: true },
-  { label: 'Tasks', icon: '✓', active: false },
-  { label: 'Calendar', icon: '▣', active: false },
-  { label: 'Time Tracking', icon: '◷', active: false },
+  { label: 'Dashboard', icon: '▦', path: '/'},
+  { label: 'Tasks', icon: '✓', path: '/tasks' },
+  { label: 'Calendar', icon: '▣', path: '/calendar' },
+  { label: 'Time Tracking', icon: '◷', path: '/time-tracking' },
 ];
 
 export default function Sidebar({ activePage = 'Dashboard', onNavigate }) {
@@ -19,21 +20,19 @@ export default function Sidebar({ activePage = 'Dashboard', onNavigate }) {
                 <p className="sidebar-section-label">WORKSPACE</p>
 
                 {navigationItems.map((item) => {
-                    const isActive = activePage === item.label;
-
                     return (
-                        <button
+                        <NavLink
                             key={item.label}
-                            type="button"
-                            className={`sidebar-link ${isActive ? 'active' : ''}`}
+                            to={item.path}
+                            end={item.path === '/'}
+                            className={`sidebar-nav-item ${activePage === item.label ? 'active' : ''}`}
                             onClick={() => onNavigate(item.label)}
-                            aria-current={isActive ? 'page' : undefined}
                         >
-                            <span className="sidebar-icon" aria-hidden="true">
-                                {item.icon}
-                            </span>
-                            <span>{item.label}</span>
-                        </button>
+                                <span className="sidebar-icon" aria-hidden="true">
+                                    {item.icon}
+                                </span>
+                                <span>{item.label}</span>
+                        </NavLink>
                     );
                 })}
             </nav>
