@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Tasklist from "../Dashboard/Tasklist";
+import { Tasklist } from "../Dashboard/Tasklist";
 import "./MyTasks.css";
 const storageKey = "timeit-my-tasks";
 
