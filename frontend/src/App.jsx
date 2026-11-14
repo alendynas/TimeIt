@@ -1,30 +1,27 @@
-import { useState } from "react";
-import Dashboard from "./pages/Dashboard/dashboard";
-import MyTasks from "./pages/Tasks/MyTasks";
-import Sidebar from "./components/layout/sidebar";
+import { Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard/dashboard';
+import MyTasks from './pages/Tasks/MyTasks';
+import Calendar from './pages/Calendar/Calendar';
+import Sidebar from '/components/layout/sidebar';
 
-export default function App() {
-  const [activePage, setActivePage] = useState("Dashboard");
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Dashboard />} />
 
-  function navigateTo(page) {
-    if (page === "Dashboard" || page === "Tasks") {
-      setActivePage(page);
-    } else {
-      window.alert(`${page} is not available yet.`);
-    }
-  }
+      <Route path="/calendar" element={<Calendar />} />
 
-  if (activePage === "Tasks") {
-    return (
-      <div className="dashboard-layout">
-        <Sidebar
-          activePage="Tasks"
-          onNavigate={navigateTo}
-        />
-        <MyTasks />
-      </div>
-    );
-  }
-
-  return <Dashboard onNavigate={navigateTo} />;
+      <Route
+        path="/tasks"
+        element={
+          <div className="dashboard-layout">
+            <Sidebar />
+            <MyTasks />
+          </div>
+        }
+      />
+    </Routes>
+  );
 }
+
+export default App;
