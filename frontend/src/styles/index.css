@@ -4,7 +4,7 @@
     background: #111318;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
-    -well-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
 }
 
 * {
@@ -93,6 +93,7 @@ body {
   gap: 9px;
 }
 
+
 .sidebar-link {
   display: flex;
   align-items: center;
@@ -103,8 +104,10 @@ body {
   border-radius: 9px;
   background: transparent;
   color: #c3cada;
+  font-family: inherit;
   font-size: 14px;
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -112,12 +115,48 @@ body {
 .sidebar-link:hover {
   background: #292f45;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .sidebar-link.active {
   background: var(--primary-color);
   color: #ffffff;
+  text-decoration: none;
 }
+
+
+/* Sidebar Profile Navigation */
+
+.sidebar-profile-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 9px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.sidebar-profile-link:hover {
+  background: #292f45;
+  color: #ffffff;
+}
+
+.sidebar-profile-link.active {
+  background: #292f45;
+  color: #ffffff;
+}
+
+.sidebar-profile-link .sidebar-user strong {
+  color: #ffffff;
+}
+
+.sidebar-profile-link .sidebar-user span {
+  color: #a1aabe;
+}
+
 
 .sidebar-icon {
   width: 20px;
