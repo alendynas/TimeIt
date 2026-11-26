@@ -2,7 +2,7 @@ import Dashboard from './pages/Dashboard/dashboard';
 import { Routes, Route } from 'react-router-dom';
 import Calendar from './pages/Calendar/Calendar';
 import MyTasks from './pages/Tasks/MyTasks';
-import Profile from './pages/Profile/Profile';
+import Profile from './pages/Profile/profile';
 
 function App() {
   return (
